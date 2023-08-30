@@ -54,6 +54,11 @@ const Login = () => {
   return (
     <ThemeProvider theme={theme}>
       <div className="body">
+        <div className="Header">
+          <div className="NameDeli">
+            <h1 className="DeliFood">DELIFOOD</h1>
+          </div>
+        </div>
         <div className="contentlogin">
           <div className="contauto">
             <Form width="80%" height="100%">
@@ -63,7 +68,7 @@ const Login = () => {
                   <InputLabel InputLabel="Email"></InputLabel>
                   <Input
                     width="95%"
-                    height="44px"
+                    height="10%"
                     variant="outlined"
                     type="text"
                     id="email"
@@ -75,33 +80,49 @@ const Login = () => {
                     width="95%"
                     type="password"
                     id="password"
-                    height="44px"
+                    height="10%"
                     placeholder="Enter password"
                     variant="outlined"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}></Input>
+                  <div className="Forgot">
+                    <h4>Forget you password?</h4>
+                  </div>
                 </div>
 
-                <div className="ButtonLog">
+                <div className="ButtonOrder">
                   <Button
                     type="submit"
-                    margin="auto"
+                    margin="10px 12px 0px 0px"
                     id="loginButton"
                     text="Login"
+                    color={theme.palette.tertiary}
+                    width="50%"
+                    height="44px"
+                    colorHover={theme.palette.quaternary}
+                    TextInButton="Login"
+                    colorText={theme.palette.primary}
+                    onClick={loginClickHandler}
+                  />
+
+                  <Button
+                    type="submit"
+                    margin="10px 0px 0px 0px"
+                    id="RegisterButton"
+                    text="Register"
                     color={theme.palette.primary}
-                    width="320px"
+                    width="50%"
                     height="44px"
                     colorHover={theme.palette.secondary}
-                    TextInButton="Login"
-                    onClick={loginClickHandler}
-                  />{' '}
+                    TextInButton="Register"
+                  />
                 </div>
               </div>
             </Form>
             <div className="errorContainer">
               {warning && <WarningAlert message={warning} />}
               {error && <ErrorAlert message={error} />}
-            </div>{' '}
+            </div>
           </div>
         </div>
       </div>

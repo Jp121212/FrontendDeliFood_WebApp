@@ -2,7 +2,8 @@ const theme = {
   palette: {
     primary: '#B113CB',
     secondary: '#6E0A7E',
-    tertiary: '#F2F2F2'
+    tertiary: '#FFFFFF',
+    quaternary: '#D9D9D9'
   }
 };
 

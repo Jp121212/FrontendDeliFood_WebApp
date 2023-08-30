@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 function Buttons(props) {
   const Button1 = styled(Button)({
     margin: props.margin,
+    color: props.colorText,
     boxShadow: 'none',
     textTransform: 'none',
     border: 'none',
