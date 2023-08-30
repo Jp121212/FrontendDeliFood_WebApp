@@ -9,44 +9,59 @@ import Input from '../../components/Input.jsx';
 import logo from '../../assets/2.svg';
 import { ThemeProvider } from 'styled-components';
 import theme from '../../components/theme.jsx';
+import SnackBar from '@mui/material/Snackbar';
 
 // import { AuthContext } from '../../context/AuthContext';
-const ErrorAlert = (props) => <AlertComp severity="error" message={props.message} color="F53636" />;
-const WarningAlert = (props) => (
-  <AlertComp severity="warning" message={props.message} color="#E9BD1F" />
-);
 
 const Login = () => {
-  const [warning, setWarning] = useState();
-  const [error, setError] = useState();
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [alert, setWarning] = useState('');
+  const [severity, setError] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   // const auth = useContext(AuthContext);
 
-  useEffect(() => {}, [password, email]);
+  useEffect(() => {}, [password, email, severity, alert, openSnackbar]);
+  const handleClose = () => {
+    setOpenSnackbar(false);
+  };
   const loginClickHandler = async (e) => {
     e.preventDefault();
     setError('');
     setWarning('');
     console.log(email, password);
+    console.log(alert);
 
     if (email == '' && password == '') {
       setWarning('Please enter email and password');
+      setError('warning');
+      setOpenSnackbar(true);
     } else if (email == '') {
       setWarning('Please enter email');
+      setError('warning');
+      setOpenSnackbar(true);
     } else if (password == '') {
       setWarning('Please enter Password');
+      setError('warning');
+      setOpenSnackbar(true);
     } else {
       const { data, error } = await authenticate({ email, password }, setError);
       // auth.verify();
       if (data) {
         window.location.href = '/';
+        setWarning(data.message);
+        setError('success');
+        setOpenSnackbar(true);
       }
       if (error.status == 404) {
-        setError('Credentials not found');
+        setWarning(error.message);
+        setError('error');
+        setOpenSnackbar(true);
       }
       if (error.status == 401) {
-        setError('Invalid Credentials');
+        setWarning(error.message);
+        setError('error');
+        setOpenSnackbar(true);
       }
     }
   };
@@ -120,8 +135,15 @@ const Login = () => {
               </div>
             </Form>
             <div className="errorContainer">
-              {warning && <WarningAlert message={warning} />}
-              {error && <ErrorAlert message={error} />}
+              <SnackBar
+                open={openSnackbar}
+                autoHideDuration={3700}
+                onClose={handleClose}
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}>
+                <AlertComp onClose={handleClose} severity={severity} variant="filled">
+                  {alert}
+                </AlertComp>
+              </SnackBar>
             </div>
           </div>
         </div>

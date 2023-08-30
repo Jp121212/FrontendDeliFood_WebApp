@@ -68,27 +68,23 @@
 
 .contentlogin{
     width: 100%;
-    height: 99vh;
+    height: 90vh;
     display: grid;
 }
 
 .contauto{
     margin: auto;
     height: 500px;
+
 }
 
 .errorContainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    
     height: 50px;
     width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    margin-bottom: 80%;
+    margin-top: 10%;
 }
+
 .InputStructure{
     display: flex;
     flex-direction: column;

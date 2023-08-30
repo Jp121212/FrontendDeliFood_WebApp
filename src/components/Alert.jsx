@@ -1,22 +1,25 @@
 import Alert from '@mui/material/Alert';
+import { styled } from '@mui/material/styles';
 
-const AlertComp = (props) => {
-  return (
-    <Alert
-      sx={{
-        fontFamily: ['Open Sans', 'sans-serif'].join(','),
-        '& .MuiAlert-icon': {
-          color: 'white'
-        },
-        backgroundColor: props.color,
-        width: '90%'
-      }}
-      variant="filled"
-      severity={props.severity}
-      onClose={props.onClose}>
-      {props.message}
-    </Alert>
-  );
+const severityColors = {
+  success: '#259E5D',
+  error: '#CE1B1B',
+  warning: '#E9BD1F',
+  info: '#2196f3'
 };
 
-export default AlertComp;
+const AlertCompont = styled(Alert)(({ severity }) => ({
+  fontFamily: ['Open Sans', 'sans-serif'].join(','),
+  width: '90%',
+  color: 'white',
+  '& .MuiAlert-icon': {
+    color: 'white'
+  },
+  boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.2)',
+  borderRadius: '10px',
+  variant: 'filled',
+  padding: '10px 20px',
+  backgroundColor: severityColors[severity]
+}));
+
+export default AlertCompont;
