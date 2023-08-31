@@ -1,4 +1,4 @@
-import '../../styles/login.css';
+import '../../styles/register.css';
 import { useEffect, useState } from 'react';
 import Button from '../../components/Button.jsx';
 import AlertComp from '../../components/Alert.jsx';
@@ -13,7 +13,7 @@ import SnackBar from '@mui/material/Snackbar';
 
 // import { AuthContext } from '../../context/AuthContext';
 
-const Login = () => {
+const Register = () => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [alert, setWarning] = useState('');
   const [severity, setError] = useState('');
@@ -151,4 +151,4 @@ const Login = () => {
     </ThemeProvider>
   );
 };
-export default Login;
+export default Register;

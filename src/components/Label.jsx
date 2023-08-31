@@ -7,7 +7,7 @@ function Form(props) {
     fontWeight: 'bold',
     fontSize: '12px',
     marginTop: '15px',
-    marginLeft: '10px'
+    marginBottom: '5px'
   };
 
   return <InputLabel style={label}>{props.InputLabel}</InputLabel>;
