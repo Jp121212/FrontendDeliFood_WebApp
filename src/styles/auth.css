@@ -17,6 +17,10 @@
     max-width: 100%;
 }
 
+.NameDeli{
+  margin-top: 1%;
+}
+
 @keyframes fadeIn {
     from {
       opacity: 0;

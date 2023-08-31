@@ -1,4 +1,4 @@
-import '../../styles/login.css';
+import '../../styles/auth.css';
 import { useEffect, useState } from 'react';
 import Button from '../../components/Button.jsx';
 import AlertComp from '../../components/Alert.jsx';
@@ -82,7 +82,9 @@ const Register = () => {
       <div className="body">
         <div className="Header">
           <div className="NameDeli">
-            <h1 className="DeliFood">DELIFOOD</h1>
+            <a href="/" className="DeliFood">
+              DELIFOOD
+            </a>
           </div>
         </div>
         <div className="contentlogin">

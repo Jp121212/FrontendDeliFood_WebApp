@@ -10,6 +10,10 @@ const Welcome = () => {
     window.location.href = '/login';
   };
 
+  const RegisterClick = () => {
+    window.location.href = '/register';
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <div className="bodyWelcome">
@@ -56,6 +60,7 @@ const Welcome = () => {
                 height="50px"
                 colorHover={theme.palette.secondary}
                 TextInButton="Register"
+                onClick={RegisterClick}
               />
             </div>
           </div>
