@@ -1,6 +1,7 @@
 import Home from '../pages/home/Home';
 import Login from '../pages/auth/Login';
 import Welcome from '../pages/Welcome/Welcome';
+import Register from '../pages/auth/Register';
 
 export const unprotectedRoutes = [
   {
@@ -10,6 +11,10 @@ export const unprotectedRoutes = [
   {
     path: '/',
     element: <Welcome />
+  },
+  {
+    path: '/register',
+    element: <Register />
   }
 ];
 

@@ -25,12 +25,15 @@ const Login = () => {
   const handleClose = () => {
     setOpenSnackbar(false);
   };
+
+  const RegisterClickHandler = () => {
+    window.location.href = '/register';
+  };
+
   const loginClickHandler = async (e) => {
     e.preventDefault();
     setError('');
     setWarning('');
-    console.log(email, password);
-    console.log(alert);
 
     if (email == '' && password == '') {
       setWarning('Please enter email and password');
@@ -119,9 +122,7 @@ const Login = () => {
                     colorText={theme.palette.primary}
                     onClick={loginClickHandler}
                   />
-
                   <Button
-                    type="submit"
                     margin="10px 0px 0px 0px"
                     id="RegisterButton"
                     text="Register"
@@ -130,6 +131,7 @@ const Login = () => {
                     height="44px"
                     colorHover={theme.palette.secondary}
                     TextInButton="Register"
+                    onClick={RegisterClickHandler}
                   />
                 </div>
               </div>

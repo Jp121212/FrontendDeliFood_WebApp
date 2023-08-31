@@ -1,4 +1,4 @@
-import '../../styles/register.css';
+import '../../styles/login.css';
 import { useEffect, useState } from 'react';
 import Button from '../../components/Button.jsx';
 import AlertComp from '../../components/Alert.jsx';
@@ -19,36 +19,47 @@ const Register = () => {
   const [severity, setError] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirm, setConfirm] = useState('');
+  const [telephone, setTelephone] = useState('');
   // const auth = useContext(AuthContext);
 
-  useEffect(() => {}, [password, email, severity, alert, openSnackbar]);
+  useEffect(() => {}, [password, email, severity, alert, openSnackbar, telephone, confirm]);
   const handleClose = () => {
     setOpenSnackbar(false);
   };
-  const loginClickHandler = async (e) => {
+  const loginClickHandler = () => {
+    window.location.href = '/login';
+  };
+
+  const RegisterClickHandler = async (e) => {
     e.preventDefault();
     setError('');
     setWarning('');
-    console.log(email, password);
-    console.log(alert);
 
-    if (email == '' && password == '') {
-      setWarning('Please enter email and password');
-      setError('warning');
-      setOpenSnackbar(true);
-    } else if (email == '') {
+    if (email == '') {
       setWarning('Please enter email');
       setError('warning');
       setOpenSnackbar(true);
     } else if (password == '') {
-      setWarning('Please enter Password');
+      setWarning('Please enter password');
       setError('warning');
       setOpenSnackbar(true);
+    } else if (confirm == '') {
+      setWarning('Please enter Confirm Password');
+      setError('warning');
+      setOpenSnackbar(true);
+    } else if (telephone == '') {
+      setWarning('Please enter telephone');
+      setError('warning');
+      setOpenSnackbar(true);
+    } else if (password != confirm) {
+      setWarning('Password and Confirm Password must be the same');
+      setError('error');
+      setOpenSnackbar(true);
     } else {
-      const { data, error } = await authenticate({ email, password }, setError);
+      const { data, error } = await authenticate({ email, password, telephone }, setError);
       // auth.verify();
       if (data) {
-        window.location.href = '/';
         setWarning(data.message);
         setError('success');
         setOpenSnackbar(true);
@@ -76,7 +87,7 @@ const Register = () => {
         </div>
         <div className="contentlogin">
           <div className="contauto">
-            <Form width="80%" height="100%">
+            <Form width="80%" height="120%">
               <div className="InputStructure">
                 <img src={logo} className="icon"></img>
                 <div className="textFields">
@@ -100,15 +111,43 @@ const Register = () => {
                     variant="outlined"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}></Input>
-                  <div className="Forgot">
-                    <h4>Forget you password?</h4>
-                  </div>
+                  <InputLabel InputLabel="Confirm Password"></InputLabel>
+                  <Input
+                    inputsize="large"
+                    type="password"
+                    id="confirm"
+                    height="10%"
+                    placeholder="Confirm password"
+                    variant="outlined"
+                    value={confirm}
+                    onChange={(e) => setConfirm(e.target.value)}></Input>
+                  <InputLabel InputLabel="Telephone"></InputLabel>
+                  <Input
+                    inputsize="large"
+                    type="number"
+                    id="telephone"
+                    height="10%"
+                    placeholder="Enter telephone"
+                    variant="outlined"
+                    value={telephone}
+                    onChange={(e) => setTelephone(e.target.value)}></Input>
                 </div>
 
                 <div className="ButtonOrder">
                   <Button
                     type="submit"
                     margin="10px 12px 0px 0px"
+                    id="RegisterButton"
+                    text="Register"
+                    color={theme.palette.primary}
+                    width="50%"
+                    height="44px"
+                    colorHover={theme.palette.secondary}
+                    TextInButton="Register"
+                    onClick={RegisterClickHandler}
+                  />{' '}
+                  <Button
+                    margin="10px 0px 0px 0px"
                     id="loginButton"
                     text="Login"
                     color={theme.palette.tertiary}
@@ -118,18 +157,6 @@ const Register = () => {
                     TextInButton="Login"
                     colorText={theme.palette.primary}
                     onClick={loginClickHandler}
-                  />
-
-                  <Button
-                    type="submit"
-                    margin="10px 0px 0px 0px"
-                    id="RegisterButton"
-                    text="Register"
-                    color={theme.palette.primary}
-                    width="50%"
-                    height="44px"
-                    colorHover={theme.palette.secondary}
-                    TextInButton="Register"
                   />
                 </div>
               </div>
