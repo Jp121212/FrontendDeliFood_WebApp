@@ -51,18 +51,18 @@ const Login = () => {
       const { data, error } = await authenticate({ email, password }, setError);
       // auth.verify();
       if (data) {
-        window.location.href = '/';
-        setWarning(data.message);
+        setWarning(data.data);
         setError('success');
         setOpenSnackbar(true);
+        window.location.href = '/home';
       }
       if (error.status == 404) {
-        setWarning(error.message);
+        setWarning(error.data.error);
         setError('error');
         setOpenSnackbar(true);
       }
       if (error.status == 401) {
-        setWarning(error.message);
+        setWarning(error.data.error);
         setError('error');
         setOpenSnackbar(true);
       }

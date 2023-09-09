@@ -2,7 +2,7 @@ import '../../styles/auth.css';
 import { useEffect, useState } from 'react';
 import Button from '../../components/Button.jsx';
 import AlertComp from '../../components/Alert.jsx';
-import { authenticate } from '../../services/auth';
+import { register } from '../../services/auth';
 import Form from '../../components/Form.jsx';
 import InputLabel from '../../components/Label.jsx';
 import Input from '../../components/Input.jsx';
@@ -12,7 +12,6 @@ import theme from '../../components/theme.jsx';
 import SnackBar from '@mui/material/Snackbar';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
-
 const Register = () => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [alert, setWarning] = useState('');
@@ -20,10 +19,11 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirm, setConfirm] = useState('');
-  const [telephone, setTelephone] = useState('');
+  const [phone, setphone] = useState('');
+  const [codephone, setcodephone] = useState('');
   // const auth = useContext(AuthContext);
 
-  useEffect(() => {}, [password, email, severity, alert, openSnackbar, telephone, confirm]);
+  useEffect(() => {}, [password, email, severity, alert, openSnackbar, phone, confirm]);
   const handleClose = () => {
     setOpenSnackbar(false);
   };
@@ -31,9 +31,13 @@ const Register = () => {
     window.location.href = '/login';
   };
 
-  const handlePhone = (value) => {
-    setTelephone(value);
+  const handlePhone = (value, data) => {
+    const prefix = data.dialCode;
+    const cleanValue = value.slice(data.dialCode.length);
+    setphone(cleanValue);
+    setcodephone(prefix);
   };
+
   const RegisterClickHandler = async (e) => {
     e.preventDefault();
     setError('');
@@ -51,7 +55,7 @@ const Register = () => {
       setWarning('Please enter Confirm Password');
       setError('warning');
       setOpenSnackbar(true);
-    } else if (telephone == '') {
+    } else if (phone == '') {
       setWarning('Please enter telephone');
       setError('warning');
       setOpenSnackbar(true);
@@ -60,7 +64,7 @@ const Register = () => {
       setError('error');
       setOpenSnackbar(true);
     } else {
-      const { data, error } = await authenticate({ email, password, telephone }, setError);
+      const { data, error } = await register({ email, password, phone, codephone }, setError);
       // auth.verify();
       if (data) {
         setWarning(data.message);
@@ -68,12 +72,22 @@ const Register = () => {
         setOpenSnackbar(true);
       }
       if (error.status == 404) {
-        setWarning(error.message);
+        setWarning(error.data.error);
         setError('error');
         setOpenSnackbar(true);
       }
       if (error.status == 401) {
-        setWarning(error.message);
+        setWarning(error.data.error);
+        setError('error');
+        setOpenSnackbar(true);
+      }
+      if (error.status == 400) {
+        setWarning(error.data.error);
+        setError('error');
+        setOpenSnackbar(true);
+      }
+      if (error.status == 500) {
+        setWarning(error.data.error);
         setError('error');
         setOpenSnackbar(true);
       }
@@ -129,7 +143,6 @@ const Register = () => {
                   <InputLabel InputLabel="Telephone"></InputLabel>
                   <PhoneInput
                     onlyCountries={['us', 'cr', 'hn', 'mx', 'sv', 'pa']}
-                    value={telephone}
                     onChange={handlePhone}
                     inputProps={{
                       name: 'telephone',

@@ -11,6 +11,18 @@ export async function authenticate(userdata) {
   }
 }
 
+export async function register(userdata) {
+  try {
+    const response = await axios.post('/auth/register', userdata);
+    localStorage.setItem('accessToken', response.data.accessToken);
+    localStorage.setItem('refreshToken', response.data.refreshToken);
+    return response;
+  } catch (error) {
+    console.log(error);
+    return { error: error.response };
+  }
+}
+
 export async function verify() {
   try {
     await axios.get('/auht/verify');
