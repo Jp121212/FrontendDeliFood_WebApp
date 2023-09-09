@@ -1,11 +1,16 @@
 import '../../styles/Welcome.css';
 import { ThemeProvider } from 'styled-components';
 import theme from '../../components/theme.jsx';
-import Input from '../../components/Input';
 import Button from '../../components/Button';
 import Worker from '../../assets/worker.svg';
+import Select from '../../components/Select';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import { useState } from 'react';
 
 const Welcome = () => {
+  const [sort, setSort] = useState({
+    sort: ''
+  });
   const LoginClick = () => {
     window.location.href = '/login';
   };
@@ -13,6 +18,20 @@ const Welcome = () => {
   const RegisterClick = () => {
     window.location.href = '/register';
   };
+
+  const GoHome = (selectedValue) => {
+    setSort({ sort: selectedValue });
+  };
+
+  const options = [
+    'Alajuela',
+    'Sanjose',
+    'Cartago',
+    'Heredia',
+    'Guanacaste',
+    'Puntarenas',
+    'Limon'
+  ];
 
   return (
     <ThemeProvider theme={theme}>
@@ -32,7 +51,13 @@ const Welcome = () => {
             </div>{' '}
             <div className="GPS">
               <h4>Put your location to ORDER NOW</h4>
-              <Input inputsize="" placeholder="GPS" id="Localitation" type="text"></Input>
+              <Select
+                icon={<LocationOnIcon />}
+                selectId="SelectCity"
+                label="City"
+                options={options}
+                onChange={GoHome}
+                value={sort}></Select>
               <h5>Do you already have an account? login or create one</h5>
             </div>
             <div className="ButtonsWelcome">

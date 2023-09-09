@@ -95,6 +95,7 @@
     height: 100%;
     width: 100%;
     gap: 3px;
+    overflow-y: auto;
 }
 
 .textFields{
@@ -167,4 +168,8 @@
     margin-left: 10px;
     margin-right: 10px;
     font-weight: medium;
+}
+
+.ContainerPhone{
+  width: 100%;
 }

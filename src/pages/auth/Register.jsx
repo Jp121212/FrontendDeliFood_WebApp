@@ -10,8 +10,8 @@ import logo from '../../assets/2.svg';
 import { ThemeProvider } from 'styled-components';
 import theme from '../../components/theme.jsx';
 import SnackBar from '@mui/material/Snackbar';
-
-// import { AuthContext } from '../../context/AuthContext';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
 const Register = () => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
@@ -31,6 +31,9 @@ const Register = () => {
     window.location.href = '/login';
   };
 
+  const handlePhone = (value) => {
+    setTelephone(value);
+  };
   const RegisterClickHandler = async (e) => {
     e.preventDefault();
     setError('');
@@ -124,15 +127,23 @@ const Register = () => {
                     value={confirm}
                     onChange={(e) => setConfirm(e.target.value)}></Input>
                   <InputLabel InputLabel="Telephone"></InputLabel>
-                  <Input
-                    inputsize="large"
-                    type="number"
-                    id="telephone"
-                    height="10%"
-                    placeholder="Enter telephone"
-                    variant="outlined"
+                  <PhoneInput
+                    onlyCountries={['us', 'cr', 'hn', 'mx', 'sv', 'pa']}
                     value={telephone}
-                    onChange={(e) => setTelephone(e.target.value)}></Input>
+                    onChange={handlePhone}
+                    inputProps={{
+                      name: 'telephone',
+                      required: true,
+                      maxLength: '20',
+                      autoFocus: true,
+                      placeholder: 'Enter telephone',
+                      style: {
+                        width: '100%',
+                        height: '50px',
+                        fontFamily: 'Open Sans, sans-serif'
+                      }
+                    }}
+                  />
                 </div>
 
                 <div className="ButtonOrder">
