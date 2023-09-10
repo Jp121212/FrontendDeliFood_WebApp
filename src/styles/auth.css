@@ -2,6 +2,8 @@
 .body{
     background-color: #FEFEFF;
     font-family: 'open sans', sans-serif;  
+    width: 100vw; /* El ancho ocupa el 100% del ancho de la ventana gráfica */
+    height: 100vh; /* La altura ocupa el 100% de la altura de la ventana gráfica */
 }
 
 .Header{
@@ -17,6 +19,11 @@
     max-width: 100%;
 }
 
+.have{
+  margin-top: 40px;
+  font-size: 14px;
+  font-family: 'open sans', sans-serif;
+}
 .NameDeli{
   margin-top: 1%;
 }

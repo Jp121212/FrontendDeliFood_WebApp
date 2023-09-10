@@ -2,43 +2,49 @@ import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Select from '@mui/material/Select';
-import { FormControl } from '@mui/material';
-import Box from '@mui/material/Box';
-import SvgIcon from '@mui/material/SvgIcon';
-import InputLabel from '@mui/material/InputLabel';
-
+import Inputlabel from '@mui/material/InputLabel';
+import { FormControl, IconButton } from '@mui/material';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 export default function BasicSelect(props) {
   const [value, setValue] = useState('');
 
+  const Form1 = styled(FormControl)({
+    width: props.widthSelect ? props.widthSelect : '50%',
+    height: props.heightSelect ? props.heightSelect : '20px',
+    fontFamily: 'Open Sans, sans-serif'
+  });
+
   const Select2 = styled(Select)({
+    padding: '10px',
     backgroundColor: '#F5F5F5',
-    width: '51%',
-    height: '50px',
-    borderRadius: '5px',
+    width: props.widthSelect ? props.widthSelect : '50%',
+    height: props.heightSelect1 ? props.heightSelect1 : '50px',
+    minWidth: props.minWidth ? props.minWidth : '200px',
     fontFamily: 'Open Sans, sans-serif',
+    borderRadius: '5px',
     fontSize: '14px',
     '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-      borderWidth: '1px',
       borderColor: 'white'
     },
     '&:hover .MuiOutlinedInput-notchedOutline': {
-      borderWidth: '1px'
+      borderWidth: '0px',
+      borderColor: 'white'
     },
     '& .MuiOutlinedInput-notchedOutline': {
-      borderWidth: '1px',
-      boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-      fontFamily: 'Open Sans, sans-serif',
-      fontSize: '14px'
+      borderWidth: '0px',
+      fontSize: '14px',
+      borderColor: 'white'
     },
     '& .MuiOutlinedInput-input': {
       fontSize: '14px'
     },
     '& .MuiSelect-root': {},
     '& .label': {
-      fontSize: '14px'
+      fontSize: '14px',
+      borderColor: 'white'
     },
     '& .MuiSelect-icon': {
-      color: 'black'
+      color: props.color ? props.color : 'none'
     }
   });
 
@@ -49,16 +55,17 @@ export default function BasicSelect(props) {
   };
 
   return (
-    <FormControl sx={{ width: '100%' }}>
-      <InputLabel>
-        <Box sx={{ display: 'flex', margin: 'auto' }}>
-          <SvgIcon sx={{ height: '20px' }} color="#00000">
-            {props.icon}
-          </SvgIcon>
-          <Box sx={{ margin: 'auto' }}>{props.label}</Box>
-        </Box>
-      </InputLabel>
-      <Select2 label={props.label} id={props.selectId} value={value} onChange={handleChange}>
+    <Form1>
+      <Inputlabel>{props.label}</Inputlabel>
+      <Select2
+        id={props.selectId}
+        value={value}
+        onChange={handleChange}
+        startAdornment={
+          <IconButton>
+            <LocationOnIcon />
+          </IconButton>
+        }>
         {props.options &&
           props.options.map((el, i) => {
             return (
@@ -68,6 +75,6 @@ export default function BasicSelect(props) {
             );
           })}
       </Select2>
-    </FormControl>
+    </Form1>
   );
 }

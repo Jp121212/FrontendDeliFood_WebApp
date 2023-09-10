@@ -1,0 +1,30 @@
+.Category{
+    border: 1px solid black;
+    padding: 30px;
+    width: 100%vh;
+    height: 5vh;
+}
+
+.Promos{
+    border: 1px solid black;
+    padding: 30px;
+    width: 100%vh;
+    height: 20vh;
+}
+
+.Restaurants{
+    display: flex;
+    border: 1px solid black;
+    width: 100%vh;
+    height: 70vh;
+}
+
+.GetRestaurant{
+    border: 1px solid black;
+    width: 80%;
+}
+
+.SortOptions{
+    border: 1px solid black;
+    width: 20%;
+}

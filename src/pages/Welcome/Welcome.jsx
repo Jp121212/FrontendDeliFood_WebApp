@@ -4,7 +4,6 @@ import theme from '../../components/theme.jsx';
 import Button from '../../components/Button';
 import Worker from '../../assets/worker.svg';
 import Select from '../../components/Select';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { useState } from 'react';
 
 const Welcome = () => {
@@ -52,13 +51,15 @@ const Welcome = () => {
             <div className="GPS">
               <h4>Put your location to ORDER NOW</h4>
               <Select
-                icon={<LocationOnIcon />}
+                width="100%"
+                height="50px"
                 selectId="SelectCity"
-                label="City"
                 options={options}
                 onChange={GoHome}
-                value={sort}></Select>
-              <h5>Do you already have an account? login or create one</h5>
+                value={sort}></Select>{' '}
+              <div className="have">
+                <h4> Do you already have an account? login or create one</h4>
+              </div>
             </div>
             <div className="ButtonsWelcome">
               <Button

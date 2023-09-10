@@ -1,0 +1,30 @@
+.links{
+    border: 1px solid black;
+    display: flex;
+    padding: 30px;
+}
+
+.SelectCity{
+    border: 1px solid black;
+    padding: 30px;
+}
+
+.Cart{
+    font-size: 14px;
+    font-family: 'open sans', sans-serif;
+}
+
+.cont{
+    width: 100vw;
+    height: 100vh; 
+}
+
+.Footer{
+    width: 100vw;
+    height: 10vh;
+    color: #ffffff;
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
