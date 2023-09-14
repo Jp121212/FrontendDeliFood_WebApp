@@ -10,14 +10,13 @@ export default function BasicSelect(props) {
   const [value, setValue] = useState('');
 
   const Form1 = styled(FormControl)({
-    width: props.widthSelect1 ? props.widthSelect1 : '50%',
+    width: props.widthSelect1 ? props.widthSelect1 : '100%',
     fontFamily: 'Open Sans, sans-serif'
   });
 
   const Select2 = styled(Select)({
     backgroundColor: '#F5F5F5',
     width: props.widthSelect ? props.widthSelect : '50%',
-    minWidth: props.minWidth ? props.minWidth : '200px',
     height: props.height ? props.height : '40px',
     borderRadius: '5px',
     fontSize: '14px',

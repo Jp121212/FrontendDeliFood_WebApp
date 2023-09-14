@@ -36,7 +36,7 @@ export default function MainLayout() {
       <div className="body">
         <div className="NavBar">
           <PrimarySearchAppBar>
-            <Box sx={{ width: '30%' }}>
+            <Box sx={{ alignItems: 'center', width: '30%', height: '60%' }}>
               <Link href="/Restaurant" underline="hover">
                 {'Restaurants'}
               </Link>
@@ -49,12 +49,12 @@ export default function MainLayout() {
             </Box>
             <Box
               sx={{
-                width: '12%',
-                height: '60%'
+                width: '11%',
+                height: '30%'
               }}>
               <Select
                 label="Select City"
-                widthSelect="60%"
+                widthSelect="100%"
                 widthSelect1="100%"
                 selectId="SelectCity"
                 options={options}
@@ -63,7 +63,8 @@ export default function MainLayout() {
             </Box>
             <Box
               sx={{
-                width: '28%',
+                width: '20%',
+
                 marginLeft: '10px'
               }}>
               <Button1
@@ -71,7 +72,7 @@ export default function MainLayout() {
                 id="ProfileButton"
                 text="Profile"
                 color={theme.palette.quinary}
-                width="20%"
+                width="30%"
                 height="40px"
                 startIcon={<PersonIcon></PersonIcon>}
                 colorHover={theme.palette.primary}
