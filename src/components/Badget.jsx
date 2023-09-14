@@ -12,10 +12,9 @@ export default function ButtonAppBar() {
   const shapeStyles = {
     bgcolor: theme.palette.quinary,
     width: 100,
-    height: 50,
+    height: 40,
     color: 'white',
     textAlign: 'center',
-    fontSize: '14px',
     fontFamily: 'Open Sans, sans-serif',
     borderRadius: '5px'
   };

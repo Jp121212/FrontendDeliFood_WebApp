@@ -5,24 +5,23 @@ import Select from '@mui/material/Select';
 import Inputlabel from '@mui/material/InputLabel';
 import { FormControl, IconButton } from '@mui/material';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+
 export default function BasicSelect(props) {
   const [value, setValue] = useState('');
 
   const Form1 = styled(FormControl)({
-    width: props.widthSelect ? props.widthSelect : '50%',
-    height: props.heightSelect ? props.heightSelect : '20px',
+    width: props.widthSelect1 ? props.widthSelect1 : '50%',
     fontFamily: 'Open Sans, sans-serif'
   });
 
   const Select2 = styled(Select)({
-    padding: '10px',
     backgroundColor: '#F5F5F5',
     width: props.widthSelect ? props.widthSelect : '50%',
-    height: props.heightSelect1 ? props.heightSelect1 : '50px',
     minWidth: props.minWidth ? props.minWidth : '200px',
-    fontFamily: 'Open Sans, sans-serif',
+    height: props.height ? props.height : '40px',
     borderRadius: '5px',
     fontSize: '14px',
+    fontFamily: 'Open Sans, sans-serif',
     '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
       borderColor: 'white'
     },
@@ -32,15 +31,11 @@ export default function BasicSelect(props) {
     },
     '& .MuiOutlinedInput-notchedOutline': {
       borderWidth: '0px',
-      fontSize: '14px',
       borderColor: 'white'
     },
-    '& .MuiOutlinedInput-input': {
-      fontSize: '14px'
-    },
+    '& .MuiOutlinedInput-input': {},
     '& .MuiSelect-root': {},
     '& .label': {
-      fontSize: '14px',
       borderColor: 'white'
     },
     '& .MuiSelect-icon': {

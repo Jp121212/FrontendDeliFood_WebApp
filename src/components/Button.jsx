@@ -1,5 +1,6 @@
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
+import Icon from '@mui/material/IconButton';
 
 function Buttons(props) {
   const Button1 = styled(Button)({
@@ -10,7 +11,7 @@ function Buttons(props) {
     border: 'none',
     width: props.width,
     height: props.height,
-    borderRadius: '10px',
+    borderRadius: '5px',
     fontSize: props.fontSize,
     padding: '6px 12px',
     lineHeight: 1.5,
@@ -27,7 +28,12 @@ function Buttons(props) {
       href={props.href}
       onClick={props.onClick}
       type={props.type}>
-      {props.TextInButton}
+      {props.icon && (
+        <Icon sx={{ color: 'white', height: '100%' }}>
+          {props.icon}
+          <p className="Cart">{props.TextInButton}</p>
+        </Icon>
+      )}
     </Button1>
   );
 }
