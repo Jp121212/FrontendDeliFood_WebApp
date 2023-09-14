@@ -6,10 +6,12 @@ import Link from '../components/Link.jsx';
 import Select from '../components/Select.jsx';
 import { useState, React } from 'react';
 import SearchInput from '../components/Search.jsx';
-import Cart from '../components/Badget.jsx';
-import Button from '../components/Button.jsx';
+// import Cart from '../components/Badget.jsx';
+import Button1 from '../components/Button.jsx';
 import theme from '../components/theme.jsx';
 import PersonIcon from '@mui/icons-material/Person';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Badge from '../components/Badget.jsx';
 
 export default function MainLayout() {
   const [sort, setSort] = useState({
@@ -64,18 +66,16 @@ export default function MainLayout() {
                 width: '28%',
                 marginLeft: '10px'
               }}>
-              <Button
+              <Button1
                 type="submit"
                 id="ProfileButton"
                 text="Profile"
                 color={theme.palette.quinary}
                 width="20%"
                 height="40px"
+                startIcon={<PersonIcon></PersonIcon>}
                 colorHover={theme.palette.primary}
-                TextInButton="Profile"
-                colorText={theme.palette.quaternary}
-                icon={<PersonIcon />}
-              />
+                colorText={theme.palette.quaternary}></Button1>
             </Box>
             <Box
               sx={{
@@ -86,19 +86,30 @@ export default function MainLayout() {
               }}>
               <SearchInput placeholder="Search Restaurant" type="text"></SearchInput>
             </Box>
-            <Box sx={{ flexGrow: 1, marginLeft: '1%' }}>
-              <Cart></Cart>
+            <Box sx={{ marginLeft: '1%', height: '60%' }}>
+              <Badge>
+                <Button1
+                  type="submit"
+                  id="CartButton"
+                  text="Cart"
+                  color={theme.palette.quinary}
+                  width="100%"
+                  height="40px"
+                  startIcon={<ShoppingCartIcon></ShoppingCartIcon>}
+                  colorHover={theme.palette.primary}
+                  colorText={theme.palette.quaternary}></Button1>
+              </Badge>
             </Box>
           </PrimarySearchAppBar>
         </div>
 
         <div className="cont">
-          <Outlet />
-        </div>
-        <div className="Footer">
-          <Box>
-            <h4>© 2021 DeliFood</h4>
-          </Box>
+          <Outlet />{' '}
+          <div className="Footer">
+            <Box>
+              <h4>© 2021 DeliFood</h4>
+            </Box>
+          </div>
         </div>
       </div>
     </>

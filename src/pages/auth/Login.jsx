@@ -120,10 +120,8 @@ const Login = () => {
                     width="50%"
                     height="44px"
                     colorHover={theme.palette.quaternary}
-                    TextInButton="Login"
                     colorText={theme.palette.primary}
-                    onClick={loginClickHandler}
-                  />
+                    onClick={loginClickHandler}></Button>
                   <Button
                     margin="10px 0px 0px 0px"
                     id="RegisterButton"

@@ -1,6 +1,5 @@
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
-import Icon from '@mui/material/IconButton';
 
 function Buttons(props) {
   const Button1 = styled(Button)({
@@ -27,13 +26,9 @@ function Buttons(props) {
       disableRipple
       href={props.href}
       onClick={props.onClick}
-      type={props.type}>
-      {props.icon && (
-        <Icon sx={{ color: 'white', height: '100%' }}>
-          {props.icon}
-          <p className="Cart">{props.TextInButton}</p>
-        </Icon>
-      )}
+      type={props.type}
+      startIcon={props.startIcon ? props.startIcon : ''}>
+      {props.text}
     </Button1>
   );
 }
