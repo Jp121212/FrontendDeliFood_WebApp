@@ -10,10 +10,13 @@ import logo from '../../assets/2.svg';
 import { ThemeProvider } from 'styled-components';
 import theme from '../../components/theme.jsx';
 import SnackBar from '@mui/material/Snackbar';
+import Fab from '../../components/Fab.jsx';
+import { useTranslation } from 'react-i18next';
 
 // import { AuthContext } from '../../context/AuthContext';
 
 const Login = () => {
+  const { t } = useTranslation();
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [alert, setWarning] = useState('');
   const [severity, setError] = useState('');
@@ -77,6 +80,7 @@ const Login = () => {
             <a href="/" className="DeliFood">
               DELIFOOD
             </a>
+            <Fab></Fab>
           </div>
         </div>
         <div className="contentlogin">
@@ -85,28 +89,28 @@ const Login = () => {
               <div className="InputStructure">
                 <img src={logo} className="icon"></img>
                 <div className="textFields">
-                  <InputLabel InputLabel="Email"></InputLabel>
+                  <InputLabel InputLabel={t('Email')}></InputLabel>
                   <Input
                     height="%10"
                     inputsize="large"
                     variant="outlined"
                     type="text"
                     id="email"
-                    placeholder="Enter email"
+                    placeholder={t('Enter email')}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}></Input>
-                  <InputLabel InputLabel="Password"></InputLabel>
+                  <InputLabel InputLabel={t('Password')}></InputLabel>
                   <Input
                     inputsize="large"
                     type="password"
                     id="password"
                     height="10%"
-                    placeholder="Enter password"
+                    placeholder={t('Enter password')}
                     variant="outlined"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}></Input>
                   <div className="Forgot">
-                    <h4>Forget you password?</h4>
+                    <h4>{t('Forget you password?')}</h4>
                   </div>
                 </div>
 
@@ -115,7 +119,7 @@ const Login = () => {
                     type="submit"
                     margin="10px 12px 0px 0px"
                     id="loginButton"
-                    text="Login"
+                    text={t('Login')}
                     color={theme.palette.tertiary}
                     width="50%"
                     height="44px"
@@ -125,7 +129,7 @@ const Login = () => {
                   <Button
                     margin="10px 0px 0px 0px"
                     id="RegisterButton"
-                    text="Register"
+                    text={t('Sign Up')}
                     color={theme.palette.primary}
                     width="50%"
                     height="44px"

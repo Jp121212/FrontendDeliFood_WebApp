@@ -5,8 +5,11 @@ import Button from '../../components/Button';
 import Worker from '../../assets/worker.svg';
 import Select from '../../components/Select';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import Fab from '../../components/Fab';
 
 const Welcome = () => {
+  const { t } = useTranslation();
   const [sort, setSort] = useState({
     sort: ''
   });
@@ -36,20 +39,21 @@ const Welcome = () => {
     <ThemeProvider theme={theme}>
       <div className="bodyWelcome">
         <div className="ContentWelcome">
+          <div style={{ marginTop: '1%' }}>
+            <Fab></Fab>
+          </div>
           <div className="LogoDeliFood">
             <h1 className="DeliFoodB">DELI</h1>
             <h1 className="DeliFoodP">FOOD</h1>
             <div className="DescriptionWelcome">
               <h4>
-                Welcome to DeliFood, your most reliable food delivery service. We take pride in
-                offering you a wide variety of culinary delights to satisfy your cravings and busy
-                lifestyle. Whether you want a slice of hot pizza, a hearty burger with all the
-                ingredients, a fresh and vibrant salad, or a creamy and delicious pasta, we are here
-                to please you.
+                {t(
+                  'Welcome to DeliFood, your most reliable food delivery service. We take pride in offering you a wide variety of culinary delights to satisfy your cravings and busy lifestyle. Whether you want a slice of hot pizza, a hearty burger with all the ingredients, a fresh and vibrant salad, or a creamy and delicious pasta, we are here to please you.'
+                )}
               </h4>
             </div>{' '}
             <div className="GPS">
-              <h4>Put your location to ORDER NOW</h4>
+              <h4>{t('Put your location to ORDER NOW')}</h4>
               <Select
                 width="100%"
                 height="50px"
@@ -58,7 +62,7 @@ const Welcome = () => {
                 onChange={GoHome}
                 value={sort}></Select>{' '}
               <div className="have">
-                <h4> Do you already have an account? login or create one</h4>
+                <h4> {t('Do you already have an account? login or create one')} </h4>
               </div>
             </div>
             <div className="ButtonsWelcome">
@@ -66,7 +70,7 @@ const Welcome = () => {
                 type="submit"
                 margin="10px 12px 0px 0px"
                 id="loginButton"
-                text="Login"
+                text={t('Login')}
                 color={theme.palette.tertiary}
                 width="45%"
                 height="50px"
@@ -80,12 +84,11 @@ const Welcome = () => {
                 type="submit"
                 margin="10px 0px 0px 0px"
                 id="RegisterButton"
-                text="Register"
+                text={t('Sign Up')}
                 color={theme.palette.primary}
                 width="45%"
                 height="50px"
                 colorHover={theme.palette.secondary}
-                TextInButton="Register"
                 onClick={RegisterClick}
               />
             </div>

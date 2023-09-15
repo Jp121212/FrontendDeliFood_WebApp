@@ -22,14 +22,18 @@
 .Footer{
     width: 100vw;
     height: 10vh;
-    color: #ffffff;
     background-color: #000000;
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .NavBar{
     width: 100%vw;
     height: 6.5%vh;
+}
+
+.Language{
+    border: 1px solid black;
+    
+    top: 0;   
+    left: 0;
 }

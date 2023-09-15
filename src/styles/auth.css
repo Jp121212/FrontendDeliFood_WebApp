@@ -17,6 +17,7 @@
     position: fixed;  
     z-index: 1;
     max-width: 100%;
+    justify-content: space-between;
 }
 
 .have{
@@ -26,6 +27,7 @@
 }
 .NameDeli{
   margin-top: 1%;
+  display:  flex;
 }
 
 @keyframes fadeIn {
@@ -165,4 +167,11 @@
 
 .ContainerPhone{
   width: 100%;
+}
+
+.Language{
+  margin-top: 20px;
+  position: fixed; /* Fija la posición del elemento en la ventana del navegador */
+  top: 0; /* Lo coloca en la parte superior */
+  right: 0; /* Lo coloca en la esquina derecha */
 }

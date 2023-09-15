@@ -12,7 +12,10 @@ import theme from '../../components/theme.jsx';
 import SnackBar from '@mui/material/Snackbar';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
+import { useTranslation } from 'react-i18next';
+import Fab from '../../components/Fab.jsx';
 const Register = () => {
+  const { t } = useTranslation();
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [alert, setWarning] = useState('');
   const [severity, setError] = useState('');
@@ -102,6 +105,7 @@ const Register = () => {
             <a href="/" className="DeliFood">
               DELIFOOD
             </a>
+            <Fab></Fab>
           </div>
         </div>
         <div className="contentlogin">
@@ -110,37 +114,37 @@ const Register = () => {
               <div className="InputStructure">
                 <img src={logo} className="icon"></img>
                 <div className="textFields">
-                  <InputLabel InputLabel="Email"></InputLabel>
+                  <InputLabel InputLabel={t('Email')}></InputLabel>
                   <Input
                     height="%10"
                     inputsize="large"
                     variant="outlined"
                     type="text"
                     id="email"
-                    placeholder="Enter email"
+                    placeholder={t('Enter email')}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}></Input>
-                  <InputLabel InputLabel="Password"></InputLabel>
+                  <InputLabel InputLabel={t('Password')}></InputLabel>
                   <Input
                     inputsize="large"
                     type="password"
                     id="password"
                     height="10%"
-                    placeholder="Enter password"
+                    placeholder={t('Enter password')}
                     variant="outlined"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}></Input>
-                  <InputLabel InputLabel="Confirm Password"></InputLabel>
+                  <InputLabel InputLabel={t('Confirm Password')}></InputLabel>
                   <Input
                     inputsize="large"
                     type="password"
                     id="confirm"
                     height="10%"
-                    placeholder="Confirm password"
+                    placeholder={t('Enter Confirm Password')}
                     variant="outlined"
                     value={confirm}
                     onChange={(e) => setConfirm(e.target.value)}></Input>
-                  <InputLabel InputLabel="Telephone"></InputLabel>
+                  <InputLabel InputLabel={t('Telephone')}></InputLabel>
                   <PhoneInput
                     onlyCountries={['us', 'cr', 'hn', 'mx', 'sv', 'pa']}
                     onChange={handlePhone}
@@ -149,7 +153,7 @@ const Register = () => {
                       required: true,
                       maxLength: '20',
                       autoFocus: true,
-                      placeholder: 'Enter telephone',
+                      placeholder: t('Enter telephone'),
                       style: {
                         width: '100%',
                         height: '50px',
@@ -164,23 +168,21 @@ const Register = () => {
                     type="submit"
                     margin="10px 12px 0px 0px"
                     id="RegisterButton"
-                    text="Register"
+                    text={t('Sign Up')}
                     color={theme.palette.primary}
                     width="50%"
                     height="44px"
                     colorHover={theme.palette.secondary}
-                    TextInButton="Register"
                     onClick={RegisterClickHandler}
                   />{' '}
                   <Button
                     margin="10px 0px 0px 0px"
                     id="loginButton"
-                    text="Login"
+                    text={t('Login')}
                     color={theme.palette.tertiary}
                     width="50%"
                     height="44px"
                     colorHover={theme.palette.quaternary}
-                    TextInButton="Login"
                     colorText={theme.palette.primary}
                     onClick={loginClickHandler}
                   />
