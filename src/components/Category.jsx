@@ -1,13 +1,22 @@
 import Box from '@mui/material/Box';
 import theme from './theme.jsx';
+import { useEffect, useState } from 'react';
 
 function Category(props) {
+  const [value, setValue] = useState('');
+
   const img = {
     width: '100%',
     height: '35px'
   };
 
-  console.log(props.options);
+  const handleChange = (el) => {
+    const selectedValue = el;
+    setValue(selectedValue);
+    props.onClick(el);
+  };
+
+  useEffect(() => {}, [value]);
 
   return (
     <div
@@ -23,7 +32,6 @@ function Category(props) {
           return (
             <Box
               key={i}
-              value={el}
               sx={{
                 borderRadius: '5px',
                 height: '55px',
@@ -35,7 +43,9 @@ function Category(props) {
                 '&:hover': {
                   backgroundColor: theme.palette.primary
                 }
-              }}>
+              }}
+              onClick={() => handleChange(el.name)}
+              value={el}>
               <div style={{ margin: 'auto', width: '100%' }}>
                 <img style={img} src={el.img}></img>{' '}
                 <p

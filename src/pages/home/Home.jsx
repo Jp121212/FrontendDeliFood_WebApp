@@ -15,8 +15,18 @@ import dinner from '../../assets/dinner.svg';
 import bbq from '../../assets/bbq.svg';
 import asian from '../../assets/asian.svg';
 import mexican from '../../assets/mexican.svg';
+import { useState } from 'react';
 
 const home = () => {
+  const [sort, setSort] = useState({
+    sort: ''
+  });
+
+  const GoHome = (selectedValue) => {
+    setSort({ sort: selectedValue });
+    console.log(selectedValue);
+  };
+
   const options = [
     {
       name: 'Fast Food',
@@ -83,7 +93,7 @@ const home = () => {
     <>
       <div className="ContentHome">
         <div className="Category">
-          <Category options={options} />
+          <Category options={options} onClick={GoHome} value={sort} />
         </div>
         <div className="Promos"></div>
         <div className="Restaurants">
