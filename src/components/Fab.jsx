@@ -10,7 +10,6 @@ function Fab1() {
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
     setLanguage(lng);
-    console.log(language);
   };
 
   useEffect(() => {
@@ -24,7 +23,7 @@ function Fab1() {
     width: '100px',
     borderRadius: '5%',
     fontSize: '12px',
-    fontFamily: 'Open Sans, sans-serif',
+    fontFamily: 'Poppins, sans-serif',
     color: theme.palette.quaternary,
     backgroundColor: theme.palette.quinary,
     '&:hover': {

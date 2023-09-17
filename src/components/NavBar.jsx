@@ -10,7 +10,7 @@ export default function PrimarySearchAppBar({ children }) {
           height: '100%vh',
           color: '#000000',
           fontSize: '16px',
-          fontFamily: 'open sans, sans-serif'
+          fontFamily: 'Poppins, sans-serif'
         }}>
         {children}
       </Toolbar>

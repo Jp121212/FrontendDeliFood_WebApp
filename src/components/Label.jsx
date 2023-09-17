@@ -2,7 +2,7 @@ import { InputLabel } from '@mui/material';
 
 function Form(props) {
   const label = {
-    fontFamily: 'Open Sans, sans-serif',
+    fontFamily: 'Poppins, sans-serif',
     color: 'white',
     fontWeight: 'bold',
     fontSize: '12px',

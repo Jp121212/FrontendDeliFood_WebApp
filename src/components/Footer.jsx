@@ -14,7 +14,6 @@ function Footer() {
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
     setLanguage(lng);
-    console.log(language);
   };
 
   useEffect(() => {

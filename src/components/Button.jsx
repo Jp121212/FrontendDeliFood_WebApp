@@ -15,7 +15,8 @@ function Buttons(props) {
     padding: '6px 12px',
     lineHeight: 1.5,
     backgroundColor: props.color,
-    fontFamily: ['Open Sans', 'sans-serif'].join(','),
+    fontFamily: 'Poppins, sans-serif',
+    fontWeight: '400',
     '&:hover': {
       backgroundColor: props.colorHover
     }

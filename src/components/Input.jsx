@@ -6,12 +6,12 @@ const Input = styled(TextField)(({ inputsize }) => ({
   borderRadius: '5px',
   '& ::placeholder': {
     color: '#000000',
-    fontFamily: 'Open Sans, sans-serif',
+    fontFamily: 'Poppins, sans-serif',
     fontSize: '14px'
   },
   width: inputsize === 'large' ? '100%' : '50%',
   '& .MuiOutlinedInput-root': {
-    fontFamily: 'Open Sans, sans-serif',
+    fontFamily: 'Poppins, sans-serif',
     fontSize: '14px',
     '& fieldset': {
       border: 'none'

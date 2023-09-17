@@ -9,7 +9,9 @@ const severityColors = {
 };
 
 const AlertCompont = styled(Alert)(({ severity }) => ({
-  fontFamily: ['Open Sans', 'sans-serif'].join(','),
+  fontFamily: 'Poppins, sans-serif',
+  fontSize: '14px',
+  fontWeight: '400',
   width: '90%',
   color: 'white',
   '& .MuiAlert-icon': {

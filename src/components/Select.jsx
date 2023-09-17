@@ -11,7 +11,7 @@ export default function BasicSelect(props) {
 
   const Form1 = styled(FormControl)({
     width: props.widthSelect1 ? props.widthSelect1 : '100%',
-    fontFamily: 'Open Sans, sans-serif'
+    fontFamily: 'Poppins, sans-serif'
   });
 
   const Select2 = styled(Select)({
@@ -20,22 +20,28 @@ export default function BasicSelect(props) {
     height: props.height ? props.height : '40px',
     borderRadius: '5px',
     fontSize: '14px',
-    fontFamily: 'Open Sans, sans-serif',
+    fontFamily: 'Poppins, sans-serif',
     '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-      borderColor: 'white'
+      borderColor: 'white',
+      fontFamily: 'Poppins, sans-serif'
     },
     '&:hover .MuiOutlinedInput-notchedOutline': {
       borderWidth: '0px',
-      borderColor: 'white'
+      borderColor: 'white',
+      fontFamily: 'Poppins, sans-serif'
     },
     '& .MuiOutlinedInput-notchedOutline': {
       borderWidth: '0px',
-      borderColor: 'white'
+      borderColor: 'white',
+      fontFamily: 'Poppins, sans-serif'
     },
     '& .MuiOutlinedInput-input': {},
-    '& .MuiSelect-root': {},
+    '& .MuiSelect-root': {
+      fontFamily: 'Poppins, sans-serif'
+    },
     '& .label': {
-      borderColor: 'white'
+      borderColor: 'white',
+      fontFamily: 'Poppins, sans-serif'
     },
     '& .MuiSelect-icon': {
       color: props.color ? props.color : 'none'

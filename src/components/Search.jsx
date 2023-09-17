@@ -6,12 +6,13 @@ import { IconButton } from '@mui/material';
 
 export default function SearchAppBar(props) {
   const Form1 = styled(FormControl)({
-    width: props.widthSearch ? props.widthSearch : '100%'
+    width: props.widthSearch ? props.widthSearch : '100%',
+    fontFamily: 'Poppins, sans-serif'
   });
 
   const StyledInputBase = styled(InputBase)(() => ({
     backgroundColor: '#F5F5F5',
-    fontFamily: 'Open Sans, sans-serif',
+    fontFamily: 'Poppins, sans-serif',
     borderRadius: '5px',
     width: '100%',
     height: '40px',

@@ -5,6 +5,7 @@ import theme from '../components/theme.jsx';
 const StyledLink = styled(Link)((props) => ({
   color: props.color ? props.color : theme.palette.quinary,
   fontSize: '14px',
+  fontFamily: 'Poppins, sans-serif',
   width: '100%',
   marginRight: '10%',
   '&:hover': {
