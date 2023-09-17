@@ -1,8 +1,7 @@
 .Category{
     border: 1px solid black;
-    padding: 30px;
-    width: 100%vh;
-    height: 5vh;
+    width: 100%vw;
+    padding: 20px;
 }
 
 .Promos{

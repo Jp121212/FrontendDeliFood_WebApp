@@ -1,6 +1,5 @@
 .bodyWelcome{
     background-color: #000000;
-    font-family: 'open sans', sans-serif;  
      max-width: 100%;
      max-height: 100%; 
       overflow: hidden;
@@ -9,19 +8,17 @@
 .DeliFoodB {
     margin-left: 10%;
     margin-top: 10%;
-    font-weight: bold; 
+    font-weight: 800; 
     color: #ffffff;
     font-size: 70px;
-    font-family: 'Poppins', sans-serif;
     line-height: 2%;
     animation: fadeIn 1s ease-in-out;
   }
   .DeliFoodP {
     margin-left: 10%;
-    font-weight: bold; 
+    font-weight: 800; 
     color: #AE35C1;
     font-size: 70px;
-    font-family: 'Poppins', sans-serif;
     line-height: 50%;
     animation: fadeIn 1s ease-in-out;
     

@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 .body{
     background-color: #FEFEFF;
-    font-family: 'open sans', sans-serif;  
-    width: 100vw; /* El ancho ocupa el 100% del ancho de la ventana gráfica */
-    height: 100vh; /* La altura ocupa el 100% de la altura de la ventana gráfica */
+    font-family: 'Poppins', sans-serif;
+    width: 100vw;
+    height: 100vh;
 }
 
 .Header{
@@ -23,7 +23,6 @@
 .have{
   margin-top: 40px;
   font-size: 14px;
-  font-family: 'open sans', sans-serif;
 }
 .NameDeli{
   margin-top: 1%;
@@ -46,9 +45,7 @@
     color: #FEFEFF;
     font-size: 80px;
     margin-left: 15%;
-    font-family: 'Poppins', sans-serif;
-    font-style: normal;
-    font-weight: 700;
+    font-weight: bold;
     line-height: 129%;
     text-decoration: underline; 
     text-decoration-color: #FEFEFF; 
@@ -171,7 +168,7 @@
 
 .Language{
   margin-top: 20px;
-  position: fixed; /* Fija la posición del elemento en la ventana del navegador */
-  top: 0; /* Lo coloca en la parte superior */
-  right: 0; /* Lo coloca en la esquina derecha */
+  position: fixed; 
+  top: 0; 
+  right: 0; 
 }
