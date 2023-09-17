@@ -16,8 +16,10 @@ import bbq from '../../assets/bbq.svg';
 import asian from '../../assets/asian.svg';
 import mexican from '../../assets/mexican.svg';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const home = () => {
+  const { t } = useTranslation();
   const [sort, setSort] = useState({
     sort: ''
   });
@@ -29,63 +31,63 @@ const home = () => {
 
   const options = [
     {
-      name: 'Fast Food',
+      name: t('Fast Food'),
       img: fastfood
     },
     {
-      name: 'Sea Food',
+      name: t('Sea Food'),
       img: seafood
     },
     {
-      name: 'Healthy',
+      name: t('Healthy'),
       img: healthy
     },
     {
-      name: 'Offers',
+      name: t('Offers'),
       img: offers
     },
     {
-      name: 'Vegan',
+      name: t('Vegan'),
       img: vegan
     },
     {
-      name: 'Coffe',
+      name: t('Coffe'),
       img: coffe
     },
     {
-      name: 'Desserts',
+      name: t('Desserts'),
       img: desserts
     },
     {
-      name: 'Smoothies',
+      name: t('Smoothies'),
       img: smoothies
     },
     {
-      name: 'Drinks',
+      name: t('Drinks'),
       img: drinks
     },
     {
-      name: 'National',
+      name: t('National'),
       img: national
     },
     {
-      name: 'Breakfast',
+      name: t('Breakfast'),
       img: breakfast
     },
     {
-      name: 'Dinner',
+      name: t('Dinner'),
       img: dinner
     },
     {
-      name: 'BBQ',
+      name: t('BBQ'),
       img: bbq
     },
     {
-      name: 'Asian',
+      name: t('Asian'),
       img: asian
     },
     {
-      name: 'Mexican',
+      name: t('Mexican'),
       img: mexican
     }
   ];

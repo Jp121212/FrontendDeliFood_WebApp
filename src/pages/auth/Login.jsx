@@ -54,7 +54,7 @@ const Login = () => {
       const { data, error } = await authenticate({ email, password }, setError);
       // auth.verify();
       if (data) {
-        setWarning(data.data);
+        setWarning('Login Successfull');
         setError('success');
         setOpenSnackbar(true);
         window.location.href = '/home';
@@ -65,6 +65,11 @@ const Login = () => {
         setOpenSnackbar(true);
       }
       if (error.status == 401) {
+        setWarning(error.data.error);
+        setError('error');
+        setOpenSnackbar(true);
+      }
+      if (error.status == 400) {
         setWarning(error.data.error);
         setError('error');
         setOpenSnackbar(true);
@@ -129,7 +134,7 @@ const Login = () => {
                   <Button
                     margin="10px 0px 0px 0px"
                     id="RegisterButton"
-                    text={t('Sign Up')}
+                    text={t('Sign-Up')}
                     color={theme.palette.primary}
                     width="50%"
                     height="44px"

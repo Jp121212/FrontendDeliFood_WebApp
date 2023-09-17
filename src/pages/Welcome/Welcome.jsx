@@ -84,7 +84,7 @@ const Welcome = () => {
                 type="submit"
                 margin="10px 0px 0px 0px"
                 id="RegisterButton"
-                text={t('Sign Up')}
+                text={t('Sign-Up')}
                 color={theme.palette.primary}
                 width="45%"
                 height="50px"

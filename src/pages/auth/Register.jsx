@@ -168,7 +168,7 @@ const Register = () => {
                     type="submit"
                     margin="10px 12px 0px 0px"
                     id="RegisterButton"
-                    text={t('Sign Up')}
+                    text={t('Sign-Up')}
                     color={theme.palette.primary}
                     width="50%"
                     height="44px"

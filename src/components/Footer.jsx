@@ -32,7 +32,7 @@ function Footer() {
         display: 'flex'
       }}>
       <Link href="/Restaurant" color={theme.palette.tertiary} underline="hover">
-        {t('About Us')}
+        {t('About-Us')}
       </Link>
       <Link href="/Restaurant" color={theme.palette.tertiary} underline="hover">
         {t('Support')}
