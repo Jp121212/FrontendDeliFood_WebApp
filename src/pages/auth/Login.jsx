@@ -59,17 +59,17 @@ const Login = () => {
         setOpenSnackbar(true);
         window.location.href = '/home';
       }
-      if (error.status == 404) {
+      if (error && error.status == 404) {
         setWarning(error.data.error);
         setError('error');
         setOpenSnackbar(true);
       }
-      if (error.status == 401) {
+      if (error && error.status == 401) {
         setWarning(error.data.error);
         setError('error');
         setOpenSnackbar(true);
       }
-      if (error.status == 400) {
+      if (error && error.status == 400) {
         setWarning(error.data.error);
         setError('error');
         setOpenSnackbar(true);

@@ -4,8 +4,7 @@ import '../styles/navbar.css';
 import { Box } from '@mui/material';
 import Link from '../components/Link.jsx';
 import Select from '../components/Select.jsx';
-import { useState, React } from 'react';
-import SearchInput from '../components/Search.jsx';
+import { useState, React, useEffect } from 'react';
 import Button1 from '../components/Button.jsx';
 import theme from '../components/theme.jsx';
 import PersonIcon from '@mui/icons-material/Person';
@@ -14,15 +13,44 @@ import Badge from '../components/Badget.jsx';
 import Footer from '../components/Footer.jsx';
 import { I18nextProvider, useTranslation } from 'react-i18next';
 import i18n from '../services/i18n.js';
+import { getRestaurant } from '../services/restaurant.js';
+import Search from '../components/Search.jsx';
 
 export default function MainLayout() {
   const { t } = useTranslation();
   const [sort, setSort] = useState({
     sort: ''
   });
+  const [data, setData] = useState([]);
+  const [info, setInfo] = useState([]);
+  const [page, setPage] = useState(0);
+  const [perPage, setPerPage] = useState(10);
+  const [search, setSearch] = useState('');
 
   const CitySelect = (selectedValue) => {
     setSort({ sort: selectedValue });
+  };
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await getRestaurant(page, perPage, search, sort);
+        setData(response.data);
+        setInfo(response.info);
+        setPerPage(10);
+        console.log(data);
+        console.log(info);
+      } catch (error) {
+        console.log('Error al obtener datos:', error);
+        setData([]);
+      }
+    };
+    getData();
+  }, [page, perPage, search, sort]);
+
+  const handleSearchChange = (inputValue) => {
+    setPage(1);
+    setSearch(inputValue);
   };
 
   const options = [
@@ -54,7 +82,7 @@ export default function MainLayout() {
               <Box
                 sx={{
                   width: '11%',
-                  height: '30%'
+                  height: '40%'
                 }}>
                 <Select
                   label={t('Select City')}
@@ -62,7 +90,6 @@ export default function MainLayout() {
                   widthSelect1="100%"
                   selectId="SelectCity"
                   options={options}
-                  value={sort}
                   onChange={CitySelect}></Select>
               </Box>
               <Box
@@ -89,7 +116,7 @@ export default function MainLayout() {
                   height: '60%',
                   marginLeft: '10px'
                 }}>
-                <SearchInput placeholder={t('Search Restaurant')} type="text"></SearchInput>
+                <Search onChange={handleSearchChange} placeholder={t('Search')}></Search>
               </Box>
               <Box sx={{ marginLeft: '1%', height: '60%' }}>
                 <Badge>

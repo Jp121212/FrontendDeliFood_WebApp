@@ -17,6 +17,7 @@ import asian from '../../assets/asian.svg';
 import mexican from '../../assets/mexican.svg';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import Promo from '../../components/Promo';
 
 const home = () => {
   const { t } = useTranslation();
@@ -97,7 +98,14 @@ const home = () => {
         <div className="Category">
           <Category options={options} onClick={GoHome} value={sort} />
         </div>
-        <div className="Promos"></div>
+        <div className="Promos">
+          <Promo
+            title="Burger Crazy King"
+            price="$19.99"
+            description="¡Duplicamos tu placer gastronómico con la Doble Sabor!"
+            image="url(https://cdn.sanity.io/images/czqk28jt/prod_bk_us/26ef0f7133a6c4ae16226cbe5561327fa9caa33f-1200x800.png?w=1181&q=80&fit=max&auto=format)"
+          />
+        </div>
         <div className="Restaurants">
           <div className="GetRestaurant"></div>
           <div className="SortOptions"></div>

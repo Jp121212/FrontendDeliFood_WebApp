@@ -46,17 +46,20 @@ const Welcome = () => {
             <h1 className="DeliFoodB">DELI</h1>
             <h1 className="DeliFoodP">FOOD</h1>
             <div className="DescriptionWelcome">
-              <h4>
-                {t(
-                  'Welcome to DeliFood, your most reliable food delivery service. We take pride in offering you a wide variety of culinary delights to satisfy your cravings and busy lifestyle. Whether you want a slice of hot pizza, a hearty burger with all the ingredients, a fresh and vibrant salad, or a creamy and delicious pasta, we are here to please you.'
-                )}
-              </h4>
+              <div className="DescWidth">
+                <h4>
+                  {t(
+                    'Welcome to DeliFood, your most reliable food delivery service. We take pride in offering you a wide variety of culinary delights to satisfy your cravings and busy lifestyle. Whether you want a slice of hot pizza, a hearty burger with all the ingredients, a fresh and vibrant salad, or a creamy and delicious pasta, we are here to please you.'
+                  )}
+                </h4>
+              </div>
             </div>{' '}
             <div className="GPS">
               <h4>{t('Put your location to ORDER NOW')}</h4>
               <Select
-                width="100%"
-                height="50px"
+                widthSelect="51%"
+                label="Select City"
+                height="40px"
                 selectId="SelectCity"
                 options={options}
                 onChange={GoHome}
@@ -73,7 +76,7 @@ const Welcome = () => {
                 text={t('Login')}
                 color={theme.palette.tertiary}
                 width="45%"
-                height="50px"
+                height="40px"
                 colorHover={theme.palette.quaternary}
                 TextInButton="Login"
                 colorText={theme.palette.primary}
@@ -87,7 +90,7 @@ const Welcome = () => {
                 text={t('Sign-Up')}
                 color={theme.palette.primary}
                 width="45%"
-                height="50px"
+                height="40px"
                 colorHover={theme.palette.secondary}
                 onClick={RegisterClick}
               />
