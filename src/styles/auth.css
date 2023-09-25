@@ -118,40 +118,14 @@
     margin-left: 10px;
     margin-right: 10px; 
 }
-.iconInput {
-    margin-top: 40px;
-    background-color: #f6f6f6; 
-    display: flex;
-    max-height: 40px;
-    width: 80%;
-    margin-left: 10%;
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -ms-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
-    -webkit-border-radius: 5px 5px 5px 5px;
-    border-radius: 5px 5px 5px 5px;
-}
-.loginIcon{
-    padding: 10px;
-    min-width: 50px;
-    max-height: 40px;
-    text-align: center;
-    margin-left: auto;
-    margin-right: 0;
-}
+
+
 
 .icon{
     height: 80px;
     width: 150px;
     margin: 0 auto;
-}
-.loginIcon:hover{
-    background-color: #d6e3fe;
-}
-
-  
+}  
 
 .Forgot{
     font-size: 13px;
@@ -165,6 +139,7 @@
 .ContainerPhone{
   width: 100%;
 }
+
 
 .Language{
   margin-top: 20px;
