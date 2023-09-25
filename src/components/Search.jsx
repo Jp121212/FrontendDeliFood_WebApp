@@ -1,38 +1,49 @@
-import { styled } from '@mui/material/styles';
-import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import FormControl from '@mui/material/FormControl';
-import { IconButton } from '@mui/material';
+import InputAdornment from '@mui/material/InputAdornment';
+import { useState } from 'react';
+import Input from './Input.jsx';
 
 export default function SearchAppBar(props) {
-  const Form1 = styled(FormControl)({
-    width: props.widthSearch ? props.widthSearch : '100%',
-    fontFamily: 'Poppins, sans-serif'
-  });
-
-  const StyledInputBase = styled(InputBase)(() => ({
+  const StyledInputBase = {
     backgroundColor: '#F5F5F5',
+    border: 'none',
     fontFamily: 'Poppins, sans-serif',
     borderRadius: '5px',
     width: '100%',
     height: '40px',
     fontSize: '14px',
-    '& .MuiInputBase-input': {
+    '& .MuiInputBaseInput': {
       borderRadius: '5px',
-      width: '400px'
+      border: 'none',
+      width: '400px',
+      height: '40px'
     }
-  }));
+  };
+
+  const [inputValue, setInputValue] = useState('');
+
+  const handleInputChange = (e) => {
+    const newValue = e.target.value;
+    setInputValue(newValue);
+    // Llama a la función onChange pasada como prop
+    if (props.onChange) {
+      props.onChange(newValue);
+    }
+  };
 
   return (
-    <Form1>
-      <StyledInputBase
-        placeholder={props.placeholder}
-        onChange={props.onChange}
-        startAdornment={
-          <IconButton>
-            <SearchIcon></SearchIcon>
-          </IconButton>
-        }></StyledInputBase>
-    </Form1>
+    <Input
+      InputProps={{
+        startAdornment: (
+          <InputAdornment position="start">
+            <SearchIcon />
+          </InputAdornment>
+        )
+      }}
+      style={StyledInputBase}
+      size="small"
+      value={inputValue}
+      placeholder={props.placeholder}
+      onChange={handleInputChange}></Input>
   );
 }

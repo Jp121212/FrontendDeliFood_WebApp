@@ -17,12 +17,10 @@ const Input = styled(TextField)(({ inputsize }) => ({
       border: 'none'
     },
     '&:hover fieldset': {
-      border: 'none',
-      borderBottom: '2px solid '
+      border: 'none'
     },
     '&.Mui-focused fieldset': {
-      border: 'none',
-      borderBottom: '2px solid '
+      border: 'none'
     }
   }
 }));

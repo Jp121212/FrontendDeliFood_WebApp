@@ -12,7 +12,6 @@ function Buttons(props) {
     height: props.height,
     borderRadius: '5px',
     fontSize: props.fontSize,
-    padding: '6px 12px',
     lineHeight: 1.5,
     backgroundColor: props.color,
     fontFamily: 'Poppins, sans-serif',
